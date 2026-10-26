@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Little World ❤️</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff5f8;
+      color: #3d2630;
+      line-height: 1.6;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 245, 248, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 15px 10px;
+      text-align: center;
+      border-bottom: 1px solid #ffd6e2;
+    }
+
+    nav a {
+      color: #d6336c;
+      text-decoration: none;
+      margin: 0 8px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: #ff4f87;
+    }
+
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 30px 20px;
+      background: linear-gradient(135deg, #ffe0eb, #fff5f8);
+    }
+
+    .heart {
+      font-size: 70px;
+      animation: beat 1.4s infinite;
+    }
+
+    @keyframes beat {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.15);
+      }
+    }
+
+    .hero h1 {
+      font-size: 45px;
+      color: #d6336c;
+      margin: 15px 0;
+    }
+
+    .hero p {
+      max-width: 600px;
+      font-size: 18px;
+      color: #6d4b57;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 13px 25px;
+      background: #d6336c;
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: bold;
+      box-shadow: 0 8px 20px rgba(214, 51, 108, 0.25);
+    }
+
+    .button:hover {
+      background: #b92559;
+    }
+
+    section {
+      padding: 70px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      color: #d6336c;
+      font-size: 32px;
+      margin-bottom: 15px;
+    }
+
+    .section-text {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 35px;
+      color: #6d4b57;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .photo {
+      background: white;
+      padding: 10px;
+      border-radius: 18px;
+      box-shadow: 0 8px 25px rgba(100, 30, 60, 0.12);
+      transition: transform 0.3s ease;
+    }
+
+    .photo:hover {
+      transform: translateY(-6px) rotate(1deg);
+    }
+
+    .photo img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      display: block;
+      border-radius: 12px;
+    }
+
+    .memories {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 35px;
+    }
+
+    .memory {
+      background: white;
+      padding: 25px;
+      border-radius: 18px;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(100, 30, 60, 0.1);
+    }
+
+    .memory .icon {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    .memory h3 {
+      color: #d6336c;
+      margin-bottom: 10px;
+    }
+
+    .letter {
+      background: linear-gradient(135deg, #fff, #ffe8f0);
+      border-radius: 25px;
+      padding: 35px;
+      max-width: 800px;
+      margin: auto;
+      box-shadow: 0 10px 30px rgba(100, 30, 60, 0.12);
+    }
+
+    .letter h3 {
+      color: #d6336c;
+      margin-bottom: 20px;
+      text-align: center;
+      font-size: 25px;
+    }
+
+    .letter p {
+      margin-bottom: 15px;
+    }
+
+    .signature {
+      text-align: right;
+      color: #d6336c;
+      font-weight: bold;
+      margin-top: 25px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 35px 20px;
+      background: #d6336c;
+      color: white;
+    }
+
+    .floating-heart {
+      position: fixed;
+      bottom: -30px;
+      font-size: 22px;
+      pointer-events: none;
+      animation: floatUp 5s linear forwards;
+      z-index: 999;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0);
+        opacity: 0;
+      }
+      20% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh);
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .photo img {
+        height: 380px;
+      }
+
+      .memories {
+        grid-template-columns: 1fr;
+      }
+
+      nav a {
+        margin: 0 5px;
+        font-size: 12px;
+      }
+
+      section {
+        padding: 55px 15px;
+      }
+
+      .letter {
+        padding: 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#photos">Photos</a>
+    <a href="#memories">Memories</a>
+    <a href="#letter">Letter</a>
+  </nav>
+
+  <!-- HOME -->
+  <section class="hero" id="home">
+    <div class="heart">❤️</div>
+
+    <h1>Our Little World</h1>
+
+    <p>
+      A little place on the internet made to keep some of our
+      favorite memories together. ❤️
+    </p>
+
+    <a href="#photos" class="button">See Our Photos 📸</a>
+  </section>
+
+  <!-- PHOTOS -->
+  <section id="photos">
+    <h2 class="section-title">Our Photos 📸</h2>
+
+    <p class="section-text">
+      Every picture has a story, and every memory is something worth keeping.
+    </p>
+
+    <div class="gallery">
+
+      <div class="photo">
+        <img src="photo1.jpeg" alt="Our photo 1">
+      </div>
+
+      <div class="photo">
+        <img src="photo2.jpeg" alt="Our photo 2">
+      </div>
+
+      <div class="photo">
+        <img src="photo3.jpeg" alt="Our photo 3">
+      </div>
+
+      <div class="photo">
+        <img src="photo4.jpeg" alt="Our photo 4">
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MEMORIES -->
+  <section id="memories">
+    <h2 class="section-title">Our Memories 💕</h2>
+
+    <p class="section-text">
+      Some moments may look simple, but they become special
+      because of the people we share them with.
+    </p>
+
+    <div class="memories">
+
+      <div class="memory">
+        <div class="icon">🌸</div>
+        <h3>The Beginning</h3>
+        <p>
+          Every story starts somewhere. Ours started with
+          simple moments that slowly became something special.
+        </p>
+      </div>
+
+      <div class="memory">
+        <div class="icon">🥰</div>
+        <h3>The Moments</h3>
+        <p>
+          The laughs, conversations, pictures, and little
+          moments that became memories.
+        </p>
+      </div>
+
+      <div class="memory">
+        <div class="icon">❤️</div>
+        <h3>Today</h3>
+        <p>
+          And here we are, still making memories and
+          creating more moments together.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- LETTER -->
+  <section id="letter">
+    <h2 class="section-title">A Letter For You 💌</h2>
+
+    <div class="letter">
+
+      <h3>To Someone Special ❤️</h3>
+
+      <p>
+        Hi, love. 🥺❤️
+      </p>
+
+      <p>
+        I made this little website as a simple way to keep
+        some of our favorite memories in one place.
+      </p>
+
+      <p>
+        Thank you for all the laughs, conversations, and
+        little moments that made ordinary days feel special.
+      </p>
+
+      <p>
+        We may not have everything figured out, but I hope
+        we continue to appreciate the moments we share and
+        keep creating memories together.
+      </p>
+
+      <p>
+        No matter how simple the moment is, it becomes
+        special when it becomes a memory worth keeping. ❤️
+      </p>
+
+      <p class="signature">
+        With love, ❤️
+      </p>
+
+    </div>
+  </section>
+
+  <footer>
+    <p>Made with ❤️ and memories</p>
+    <p>Our Little World © 2026</p>
+  </footer>
+
+  <script>
+    function createHeart() {
+      const heart = document.createElement("div");
+
+      heart.className = "floating-heart";
+
+      const hearts = ["❤️", "💕", "💗", "💖", "💓"];
+      heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (4 + Math.random() * 3) + "s";
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 7000);
+    }
+
+    setInterval(createHeart, 1200);
+  </script>
+
+</body>
+</html>
